@@ -1,0 +1,137 @@
+<div class="container container_sm">
+  <h1>
+    <span ng-show="!$ctrl.book.id">Добавьте книгу</span>
+    <span ng-show="$ctrl.book.id">Редактирование книги</span>
+  </h1>
+  <form name="$ctrl.form" ng-submit="$ctrl.saveData($ctrl.form)" onsubmit="">
+    <div class="row">
+      <div class="col width-8">
+        <div class="form-group">
+          <label class="label label_required" for="title">Заголовок</label>
+          <input type="text" class="form-control" name="title" id="title" ng-model="$ctrl.book.title" ng-required="true"
+            ng-maxlength="30">
+          <div ng-messages="$ctrl.form.title.$error" class="alert-error">
+            <div ng-message="required">Обязательное поле</div>
+            <div ng-message="maxlength">Не более 30 символов</div>
+          </div>
+        </div>
+      </div>
+      <div class="col width-4">
+        <div class="form-group">
+          <label class="label label_required" for="pageNumber">Количество страниц</label>
+          <input type="number" class="form-control" name="pageNumber" id="pageNumber" ng-model="$ctrl.book.pageNumber"
+            ng-required="true" ng-min="1" ng-max="10000">
+          <div ng-messages="$ctrl.form.pageNumber.$error" class="alert-error">
+            <div ng-message="required">Обязательное поле</div>
+            <div ng-message="max">Должно быть от 1 до 10000</div>
+            <div ng-message="min">Должно быть от 1 до 10000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col width-12">
+        <div class="form-group">
+          <label class="label label_required">Авторы</label>
+          <input style="display: none;" type="number" name="authorsCount" ng-model="$ctrl.book.authors.length" ng-min="1">
+          <div ng-messages="$ctrl.form.authorsCount.$error" class="alert-error">
+            <div ng-message="min">Необходим хотя бы один автор</div>
+          </div>
+          <div ng-repeat="author in $ctrl.book.authors track by $index">
+            <div class="row">
+              <div class="col width-4">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="authors[{{$index}}][firstName]" id="authors[{{$index}}][firstName]"
+                    ng-model="author.firstName" ng-required="true" ng-maxlength="20" placeholder="Имя">
+                  <div ng-messages="$ctrl.form['authors['+$index+'][firstName]'].$error" class="alert-error">
+                    <div ng-message="required">Обязательное поле</div>
+                    <div ng-message="maxlength">Не более 20 символов</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col width-4">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="authors[{{$index}}][lastName]" id="authors[{{$index}}][lastName]"
+                    ng-model="author.lastName" ng-required="true" ng-maxlength="20" placeholder="Фамилия">
+                  <div ng-messages="$ctrl.form['authors['+$index+'][lastName]'].$error" class="alert-error">
+                    <div ng-message="required">Обязательное поле</div>
+                    <div ng-message="maxlength">Не более 20 символов</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col width-4">
+                <div>
+                  <button type="button" class="btn btn-alert" ng-click="$ctrl.deleteAuthor($event, $index);" ng-if="$ctrl.book.authors.length > 1">
+                    Удалить
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" ng-click="$ctrl.addAuthor($event);">Добавить</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col width-4">
+        <div class="form-group">
+          <label class="label" for="publisher">Название издательства</label>
+          <input type="text" class="form-control" name="publisher" id="publisher" ng-model="$ctrl.book.publisher"
+            ng-maxlength="30">
+          <div ng-messages="$ctrl.form.publisher.$error" class="alert-error">
+            <div ng-message="maxlength">Не более 30 символов</div>
+          </div>
+        </div>
+      </div>
+      <div class="col width-4">
+        <div class="form-group">
+          <label class="label" for="publishYear">Год публикации</label>
+          <input type="number" class="form-control" name="publishYear" id="publishYear" ng-model="$ctrl.book.publishYear"
+            ng-min="1800">
+          <div ng-messages="$ctrl.form.publishYear.$error" class="alert-error">
+            <div ng-message="min">Должен быть от 1800</div>
+          </div>
+        </div>
+      </div>
+      <div class="col width-4">
+        <div class="form-group">
+          <label class="label" for="releaseDate">Дата выхода в тираж</label>
+          <input type="date" class="form-control" name="releaseDate" id="releaseDate" ng-model="$ctrl.book.releaseDate"
+            min="1800-01-01">
+          <div ng-messages="$ctrl.form.releaseDate.$error" class="alert-error">
+            <div ng-message="min">Должна быть от 01-01-1800</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col width-8">
+        <div class="form-group">
+          <label class="label" for="isbn">ISBN</label>
+          <input type="text" class="form-control" name="isbn" id="isbn" ng-model="$ctrl.book.isbn" validate-isbn>
+          <div ng-messages="$ctrl.form.isbn.$error" class="alert-error">
+            <div ng-message="invanlidIsbn">Некорректный ISBN</div>
+          </div>
+        </div>
+      </div>
+      <div class="col width-4">
+        <div class="form-group">
+          <label class="btn btn-primary" for="image">
+            <input type="file" class="form-control" name="image" id="image" upload-file>
+            Добавить обложку
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col width-12">
+        <button type="button" ui-sref="bookshelf" class="btn btn-alert">Отменить</button>
+        <button type="submit" class="btn btn-success">Сохранить</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.edit-control {
+    display: block;
+    padding: 15px;
+    margin-bottom: 5px;
+    background-color: $color-gray;
+
+    &:hover {
+        background-color: darken($color-gray, 10%);
+    }
+}
+
+.edit-control {
+    @media (min-width: $screen-sm-min) {
+        padding: 5px;
+        margin-bottom: 2px;
+    }
+}

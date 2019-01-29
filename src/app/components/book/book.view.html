@@ -1,0 +1,38 @@
+<div class="book-card">
+    <div class="book-card__image">
+        <img ng-src="{{$ctrl.book.image ? $ctrl.book.image : 'https://via.placeholder.com/190x270?text=НЕТ+ОБЛОЖКИ' }}">
+    </div>
+    <div class="book-card__info">
+        <div class="book-info">
+            <div class="book-info__main">
+                <div class="book-info__title">{{$ctrl.book.title}}</div>
+                <div class="book-info__text">{{ $ctrl.authorsToString($ctrl.book.authors) }}</div>
+                <div class="book-info__text">{{ $ctrl.book.pageNumber }} стр.</div>
+            </div>
+            <div class="book-info__optional">
+                <div class="book-info__text book-info__text_additional" ng-if="$ctrl.book.publisher">Издательство {{
+                    $ctrl.book.publisher }}</div>
+                <div class="book-info__text book-info__text_additional" ng-if="$ctrl.book.publishYear">{{
+                    $ctrl.book.publishYear }} г.</div>
+                <div class="book-info__text book-info__text_additional" ng-if="$ctrl.book.releaseDate">Дата выхода {{
+                    $ctrl.book.releaseDate | date:'dd.MM.yyyy' }}</div>
+                <div class="book-info__text book-info__text_additional" ng-if="$ctrl.book.isbn">ISBN {{ $ctrl.book.isbn
+                    }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="book-card__controls">
+        <a href="#" ui-sref="editBook({id:$ctrl.book.id})" class="edit-control" title="Редактировать">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20pt" height="20pt" viewBox="0 0 35 35">
+                <path d="M33.223 20.613l-2.637-2.636c-.36-.36-.754-.532-1.219-.532-.39 0-.75.157-1.058.461l-2.106 2.074-8.406 8.403a1.38 1.38 0 0 0-.258.43l-1.402 4.98c-.032.105-.051.207-.051.309 0 .43.41.875.941.875a.99.99 0 0 0 .274-.036l4.945-1.437c.168-.05.309-.102.414-.207l8.457-8.438 2.07-2.074c.274-.273.426-.613.481-1.027 0-.461-.156-.856-.445-1.145zm-11.711 11.18l-3.117.871.906-3.113 7.57-7.57 2.242 2.21zm8.937-8.938l-2.246-2.21 1.2-1.196 2.21 2.207zm0 0M20.277 16.469H5.555a.927.927 0 0 0-.942.941c0 .531.41.961.942.961h14.722c.532 0 .942-.43.942-.96a.927.927 0 0 0-.942-.942zm0 0M21.219 21.656a.927.927 0 0 0-.942-.941H5.555a.927.927 0 0 0-.942.941c0 .532.41.957.942.957h14.722a.94.94 0 0 0 .942-.957zm0 0M12.387 24.926H5.555a.927.927 0 0 0-.942.941c0 .531.41.942.942.942h6.832a.94.94 0 1 0 0-1.883zm0 0M12.387 29.172H5.555a.927.927 0 0 0-.942.941c0 .532.41.942.942.942h6.832a.94.94 0 1 0 0-1.883zm0 0" />
+                <path d="M3.21 32.922V2.055c0-.121.052-.172.173-.172h7.02V12.05c0 1.164.886 2.11 2.05 2.11h10.172v5.75h1.898v-7.653h-.035L12.285.035 12.25 0H3.383C2.8 0 2.305.207 1.91.598c-.394.394-.601.89-.601 1.457v30.867c0 1.164.91 2.055 2.074 2.055h11.176v-1.883H3.383c-.121 0-.172-.051-.172-.172zm9.075-30.2l9.535 9.536h-9.367c-.117 0-.168-.07-.168-.207zm0 0" />
+            </svg>
+        </a>
+        <a href="#" ng-click="$ctrl.deleteBook($event)" class="edit-control" title="Удалить">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20pt" height="20pt" viewBox="0 0 35 35">
+                <path d="M28.957 4.121h-4.676V1.086C24.281.473 23.79 0 23.176 0c-.059 0-.098.02-.117.04A.148.148 0 0 0 22.98 0H11.836a1.07 1.07 0 0 0-1.086 1.086V4.12H6.055a2.36 2.36 0 0 0-2.387 2.387v3.906h2.07v22.23c0 1.344 1.028 2.368 2.367 2.368h18.801c1.34 0 2.387-1.024 2.387-2.367v-22.23h2.05V6.507a2.36 2.36 0 0 0-2.386-2.387zM12.918 2.168h9.176v1.953h-9.176zm14.184 30.477c0 .14-.059.199-.196.199h-18.8c-.137 0-.196-.059-.196-.2v-22.23h19.192zm2.05-24.399H5.86V6.508c0-.137.059-.215.196-.215h22.902c.137 0 .195.078.195.215zm0 0" />
+                <path d="M21.48 12.96h2.192v17.95H21.48zm0 0M16.43 12.96h2.191v17.95H16.43zm0 0M11.383 12.96h2.187v17.95h-2.187zm0 0" />
+            </svg>
+        </a>
+    </div>
+</div>

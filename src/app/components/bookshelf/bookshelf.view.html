@@ -1,0 +1,20 @@
+<div class="container">
+        <div class="sort">
+                <div class="sort__title">
+                        Сортировать
+                </div>
+                <div class="sort__control">
+                        <input id="name" class="toggle toggle-left" type="radio" ng-model="$ctrl.filter.value" value="title"
+                                ng-change="$ctrl.selectFilter()">
+                        <label for="name" class="toggle-title">По заголовку</label>
+                        <input id="year" class="toggle toggle-right" type="radio" ng-model="$ctrl.filter.value" value="publishYear"
+                                ng-change="$ctrl.selectFilter()">
+                        <label for="year" class="toggle-title">По году публикации</label>
+                </div>
+        </div>
+        <div class="row">
+                <book-component ng-repeat="book in $ctrl.books | orderBy: $ctrl.filter.value track by book.id" book="book"
+                        class="col width-6">
+                </book-component>
+        </div>
+</div>

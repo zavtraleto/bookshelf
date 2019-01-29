@@ -1,0 +1,64 @@
+
+$gap-sm: 0px;
+$gap-lg: 15px;
+
+.row {
+  display: flex;
+  margin-left: -$gap-sm;
+  margin-right: -$gap-sm;
+  flex-wrap: wrap;
+
+  @media (min-width: $screen-sm-min) {
+    margin-left: -$gap-lg;
+    margin-right: -$gap-lg;
+  }
+}
+
+.col {
+  flex: 1 0 auto;
+  margin-left: $gap-sm;
+  margin-right: $gap-sm;
+  display: flex;
+
+  @media (min-width: $screen-sm-min) {
+    margin-left: $gap-lg;
+    margin-right: $gap-lg;
+  }
+}
+
+@for $col from 1 through 12 {
+  .col.width-#{$col} { 
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    @media (min-width: $screen-sm-min) {
+      flex-basis: calc(((100% /12) * #{$col}) - (#{$gap-lg} * 2));
+    }
+  }
+}
+
+@for $col from 1 through 12 {
+  .col.offset-#{$col} { margin-left: calc(((100% /12) * #{$col}) + (#{$gap-sm})); }
+  @media (min-width: $screen-sm-min) {
+      .col.offset-#{$col} { margin-left: calc(((100% /12) * #{$col}) + (#{$gap-lg})); }
+  }
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @media (min-width: $screen-sm-min) {
+      padding: 0 30px;
+  }
+}
+
+.container_sm {
+  max-width: 960px;
+  padding: 0 15px;
+
+    @media (min-width: $screen-sm-min) {
+      padding: 0 30px;
+  }
+}

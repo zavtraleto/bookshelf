@@ -1,0 +1,38 @@
+.book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__main {
+        margin-top: 20px;
+    }
+
+    &__optional {
+        margin-top: 10px;
+    }
+
+    &__title {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    &__text {
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+
+    &__text_additional {
+        font-size: 15px;
+        color: #000000;
+    }
+}
+
+.book-info {
+    @media (min-width: $screen-sm-min) {
+        padding-left: 10px;
+
+        &__main, &__optional {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<html>
+
+<head>
+  <title>Книжная полка</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+
+<body ng-app="books">
+  <header class="header">
+    <div class="header__container container">
+      <button type="button" ui-sref="bookshelf" class="btn btn-default">На главную</button>
+      <button type="button" ui-sref="newBook" class="btn btn-primary">Добавить книгу</button>
+    </div>
+  </header>
+  <div ui-view></div>
+</body>
+
+</html>

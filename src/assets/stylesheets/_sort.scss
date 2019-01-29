@@ -1,0 +1,26 @@
+.sort {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &__title {
+        font-size: 16px;
+    }
+
+    &__control {
+        
+        overflow: hidden;
+    }
+}
+
+.sort {
+    @media (min-width: $screen-sm-min) {
+        flex-wrap: nowrap;
+
+        &__control {
+            margin: 0 15px;
+        }
+    }
+}

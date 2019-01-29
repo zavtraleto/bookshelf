@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Бесконечная шутка",
+    "authors": [
+      {
+        "firstName": "Дэвид Ф.",
+        "lastName": "Уоллес"
+      }
+    ],
+    "pageNumber": 1279,
+    "publisher": "АСТ",
+    "publishYear": 2018,
+    "releaseDate": "28.12.2018",
+    "isbn": "5170963553",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "Секреты JavaScript ниндзя",
+    "authors": [
+      {
+        "firstName": "Джон",
+        "lastName": "Резиг"
+      },
+      {
+        "firstName": "Беэр",
+        "lastName": "Бибо"
+      },
+      {
+        "firstName": "Иосип",
+        "lastName": "Марас"
+      }
+    ],
+    "pageNumber": 544,
+    "publisher": "Вильямс",
+    "publishYear": 2017,
+    "releaseDate": "24.03.2017",
+    "isbn": "5-9908911-8-0",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "title": "Алгоритмы. Руководство по разработке",
+    "authors": [
+      {
+        "firstName": "Стивен",
+        "lastName": "Скиена"
+      }
+    ],
+    "pageNumber": 720,
+    "publisher": "BHV",
+    "publishYear": 2017,
+    "releaseDate": "11.06.2017",
+    "isbn": "5-9775-0560-4",
+    "image": ""
+  }
+]
